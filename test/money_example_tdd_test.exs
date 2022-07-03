@@ -2,7 +2,8 @@ defmodule MoneyExampleTddTest do
   use ExUnit.Case
   doctest MoneyExampleTdd
 
-  test "greets the world" do
-    assert MoneyExampleTdd.hello() == :world
+  test "test multiplication" do
+    dollar = %Dollar{amount: 5}
+    assert Dollar.times(dollar, 2) == %Dollar{amount: 10}
   end
 end
