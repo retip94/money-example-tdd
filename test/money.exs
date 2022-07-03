@@ -50,4 +50,11 @@ defmodule MoneyTest do
   test "rate for the same currencies" do
     assert 1 == Bank.get_rate("USD", "USD", %Bank{})
   end
+
+  test "mixed addition" do
+    sum = Money.sum(Money.dollar(5), Money.franc(10))
+    bank = Bank.add_rate("CHF", "USD", 2)
+    result = Bank.reduce(sum, "USD", bank)
+    assert Money.dollar(10) == result
+  end
 end

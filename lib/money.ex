@@ -1,4 +1,6 @@
 defmodule Money do
+  @behaviour Expression
+
   defstruct [:amount, :currency]
 
   def times(money, multiplier) do
@@ -8,6 +10,7 @@ defmodule Money do
     }
   end
 
+  @impl Expression
   def sum(money1, money2) do
     %Sum{augend: money1, addend: money2}
   end
