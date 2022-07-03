@@ -1,5 +1,9 @@
 defmodule Bank do
-  def reduce(money, currency) do
-    Money.dollar(10)
+  def reduce(source, target_currency) do
+    if source.__struct__ == Money do
+      Money.reduce(source, target_currency)
+    else
+      Sum.reduce(source, target_currency)
+    end
   end
 end

@@ -29,4 +29,15 @@ defmodule MoneyTest do
     assert Money.dollar(1).currency == "USD"
     assert Money.franc(1).currency == "CHF"
   end
+
+  test "reduce sum" do
+    sum = %Sum{augend: Money.dollar(3), addend: Money.dollar(4)}
+    result = Bank.reduce(sum, "USD")
+    assert result == Money.dollar(7)
+  end
+
+  test "reduce money" do
+    result = Bank.reduce(Money.dollar(1), "USD")
+    assert result == Money.dollar(1)
+  end
 end
