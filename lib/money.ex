@@ -3,7 +3,8 @@ defmodule Money do
 
   defstruct [:amount, :currency]
 
-  def times(money, multiplier) do
+  @impl Expression
+  def multiply(money, multiplier) do
     %Money{
       amount: multiplier * money.amount,
       currency: money.currency

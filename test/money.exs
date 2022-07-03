@@ -3,17 +3,15 @@ defmodule MoneyTest do
 
   test "multiplication" do
     dollar = Money.dollar(5)
-    assert Money.times(dollar, 2) == %Money{amount: 10, currency: "USD"}
-    assert Money.times(dollar, 3) == %Money{amount: 15, currency: "USD"}
+    assert Money.multiply(dollar, 2) == %Money{amount: 10, currency: "USD"}
+    assert Money.multiply(dollar, 3) == %Money{amount: 15, currency: "USD"}
 
     franc = Money.franc(5)
-    assert Money.times(franc, 2) == %Money{amount: 10, currency: "CHF"}
-    assert Money.times(franc, 3) == %Money{amount: 15, currency: "CHF"}
+    assert Money.multiply(franc, 2) == %Money{amount: 10, currency: "CHF"}
+    assert Money.multiply(franc, 3) == %Money{amount: 15, currency: "CHF"}
   end
 
   test "sum" do
-    five = Money.dollar(5)
-    expression = Expression
     sum = Money.sum(Money.dollar(5), Money.dollar(5))
     reduced = Bank.reduce(sum, "USD")
     assert reduced == Money.dollar(10)
@@ -56,5 +54,22 @@ defmodule MoneyTest do
     bank = Bank.add_rate("CHF", "USD", 2)
     result = Bank.reduce(sum, "USD", bank)
     assert Money.dollar(10) == result
+  end
+
+  test "sum of sum and money" do
+    sum = Money.sum(Money.dollar(5), Money.franc(10))
+    bank = Bank.add_rate("CHF", "USD", 2)
+    sum = Sum.sum(sum, Money.dollar(5))
+    result = Bank.reduce(sum, "USD", bank)
+
+    assert Money.dollar(15) == result
+  end
+
+  test "sum multiplication" do
+    sum = Money.sum(Money.dollar(5), Money.franc(10))
+    bank = Bank.add_rate("CHF", "USD", 2)
+    sum = Sum.multiply(sum, 2)
+    result = Bank.reduce(sum, "USD", bank)
+    assert result == Money.dollar(20)
   end
 end
