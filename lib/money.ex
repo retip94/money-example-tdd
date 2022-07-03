@@ -13,10 +13,10 @@ defmodule Money do
   end
 
   def dollar(amount) do
-    %Dollar{amount: amount}
+    %Money{amount: amount, currency: "USD"}
   end
 
   def franc(amount) do
-    %Franc{amount: amount}
+    %Money{amount: amount, currency: "CHF"}
   end
 end
