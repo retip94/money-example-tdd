@@ -1,3 +1,3 @@
 defmodule Franc do
-  defstruct [:amount]
+  defstruct [:amount, currency: "CHF"]
 end

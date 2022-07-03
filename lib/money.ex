@@ -1,5 +1,5 @@
 defmodule Money do
-  defstruct [:amount]
+  defstruct [:amount, :currency]
 
   def times(money, multiplier) do
     struct(money.__struct__, amount: multiplier * money.amount)

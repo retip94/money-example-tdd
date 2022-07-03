@@ -1,3 +1,3 @@
 defmodule Dollar do
-  defstruct [:amount]
+  defstruct [:amount, currency: "USD"]
 end

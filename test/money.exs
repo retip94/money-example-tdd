@@ -18,4 +18,9 @@ defmodule MoneyTest do
     refute Money.equals(%Franc{amount: 5}, %Franc{amount: 6})
     refute Money.equals(%Dollar{amount: 5}, %Franc{amount: 5})
   end
+
+  test "currency" do
+    assert Money.dollar(1).currency == "USD"
+    assert Money.franc(1).currency == "CHF"
+  end
 end

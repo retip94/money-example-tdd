@@ -15,7 +15,7 @@ current tests to-do list:
 - ~~Common equals~~
 - Common times
 - ~~Compare Francs with Dollars~~
-- Currency?
+- ~~Currency?~~
 
 ## Installation
 
