@@ -1,16 +1,14 @@
 defmodule MoneyTest do
   use ExUnit.Case
 
-  test "dollar multiplication" do
-    dollar = %Dollar{amount: 5}
-    assert Dollar.times(dollar, 2) == %Dollar{amount: 10}
-    assert Dollar.times(dollar, 3) == %Dollar{amount: 15}
-  end
+  test "multiplication" do
+    dollar = Money.dollar(5)
+    assert Money.times(dollar, 2) == %Dollar{amount: 10}
+    assert Money.times(dollar, 3) == %Dollar{amount: 15}
 
-  test "franc multiplication" do
-    franc = %Franc{amount: 5}
-    assert Franc.times(franc, 2) == %Franc{amount: 10}
-    assert Franc.times(franc, 3) == %Franc{amount: 15}
+    franc = Money.franc(5)
+    assert Money.times(franc, 2) == %Franc{amount: 10}
+    assert Money.times(franc, 3) == %Franc{amount: 15}
   end
 
   test "equality" do
