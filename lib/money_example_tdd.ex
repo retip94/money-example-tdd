@@ -1,2 +1,0 @@
-defmodule MoneyExampleTdd do
-end
