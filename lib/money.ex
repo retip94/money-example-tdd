@@ -2,11 +2,14 @@ defmodule Money do
   defstruct [:amount, :currency]
 
   def times(money, multiplier) do
-    struct(money.__struct__, amount: multiplier * money.amount)
+    %Money{
+      amount: multiplier * money.amount,
+      currency: money.currency
+    }
   end
 
   def equals(money, money2) do
-    money.amount == money2.amount && money.__struct__ == money2.__struct__
+    money.amount == money2.amount && money.currency == money2.currency
   end
 
   def dollar(amount) do

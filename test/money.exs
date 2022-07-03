@@ -3,12 +3,12 @@ defmodule MoneyTest do
 
   test "multiplication" do
     dollar = Money.dollar(5)
-    assert Money.times(dollar, 2) == %Dollar{amount: 10}
-    assert Money.times(dollar, 3) == %Dollar{amount: 15}
+    assert Money.times(dollar, 2) == %Money{amount: 10, currency: "USD"}
+    assert Money.times(dollar, 3) == %Money{amount: 15, currency: "USD"}
 
     franc = Money.franc(5)
-    assert Money.times(franc, 2) == %Franc{amount: 10}
-    assert Money.times(franc, 3) == %Franc{amount: 15}
+    assert Money.times(franc, 2) == %Money{amount: 10, currency: "CHF"}
+    assert Money.times(franc, 3) == %Money{amount: 15, currency: "CHF"}
   end
 
   test "equality" do
