@@ -1,6 +1,19 @@
 # MoneyExampleTdd
 
-**TODO: Add description**
+current tests to-do list
+- $5 + 10 CHF = $10 if rate is 2:1
+- ~~$5 * 2 = $10~~
+- ~~Make "amount" private~~
+- ~~Dollar side effects?~~
+- Money rounding?
+- ~~equals()~~
+- hashCode()
+- Equal null
+- Equal object
+- ~~5 CHF * 2 = 10 CHF Dollar/Franc~~
+- duplication
+- Common equals
+- Common times
 
 ## Installation
 
@@ -18,4 +31,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/money_example_tdd>.
-
