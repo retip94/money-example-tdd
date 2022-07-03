@@ -11,6 +11,14 @@ defmodule MoneyTest do
     assert Money.times(franc, 3) == %Money{amount: 15, currency: "CHF"}
   end
 
+  test "sum" do
+    five = Money.dollar(5)
+    expression = Expression
+    sum = Money.sum(Money.dollar(5), Money.dollar(5))
+    reduced = Bank.reduce(sum, "USD")
+    assert reduced == Money.dollar(10)
+  end
+
   test "equality" do
     assert Money.equals(Money.dollar(5), Money.dollar(5))
     refute Money.equals(Money.dollar(5), Money.dollar(6))

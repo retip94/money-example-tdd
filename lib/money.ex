@@ -8,8 +8,15 @@ defmodule Money do
     }
   end
 
-  def equals(money, money2) do
-    money.amount == money2.amount && money.currency == money2.currency
+  def sum(money1, money2) do
+    %Money{
+      amount: money1.amount + money2.amount,
+      currency: money1.currency
+    }
+  end
+
+  def equals(money1, money2) do
+    money1.amount == money2.amount && money1.currency == money2.currency
   end
 
   def dollar(amount) do
