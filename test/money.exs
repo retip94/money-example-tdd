@@ -18,5 +18,6 @@ defmodule MoneyTest do
     refute Money.equals(%Dollar{amount: 5}, %Dollar{amount: 6})
     assert Money.equals(%Franc{amount: 5}, %Franc{amount: 5})
     refute Money.equals(%Franc{amount: 5}, %Franc{amount: 6})
+    refute Money.equals(%Dollar{amount: 5}, %Franc{amount: 5})
   end
 end

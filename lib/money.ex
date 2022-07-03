@@ -6,6 +6,6 @@ defmodule Money do
   end
 
   def equals(money, money2) do
-    money.amount == money2.amount
+    money.amount == money2.amount && money.__struct__ == money2.__struct__
   end
 end
