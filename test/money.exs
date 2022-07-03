@@ -40,4 +40,14 @@ defmodule MoneyTest do
     result = Bank.reduce(Money.dollar(1), "USD")
     assert result == Money.dollar(1)
   end
+
+  test "reduce money different currency" do
+    bank = Bank.add_rate("CHF", "USD", 2)
+    result = Bank.reduce(Money.franc(2), "USD", bank)
+    assert Money.dollar(1) == result
+  end
+
+  test "rate for the same currencies" do
+    assert 1 == Bank.get_rate("USD", "USD", %Bank{})
+  end
 end
